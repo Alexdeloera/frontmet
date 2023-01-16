@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import ShowSchedules from './components/ShowSchedules';
+import AddMeeting from './components/AddMeeting';
+import EditMeeting from './components/EditMeeting';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<ShowSchedules/>}/>
+        <Route path='/create' element={<AddMeeting/>}/>
+        <Route path='/edit:id' element={<EditMeeting/>}/>
+      </Routes>
+    </BrowserRouter>
+      
     </div>
   );
 }
